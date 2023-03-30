@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SearchText {
 
@@ -12,18 +14,26 @@ public class SearchText {
 
     }
 
-    public static int count(String text){
-        try {
-            Path path = Paths.get("src/main/resources/input.txt");
-            String filesContext = new String(Files.readAllBytes(path));
+    public static List<Integer> count(String text) {
 
-        } catch (IOException ioException){
+        Path path = Paths.get("src/main/resources/input.txt");
+        List<Integer> lineNumbers = new ArrayList<>();
+
+        try {
+
+            String filesContext = new String(Files.readAllBytes(path));
+            String[] lines = filesContext.split("\\r?\\n");
+
+            for (int i = 0; i < lines.length; i++) {
+                if (lines[i].equals(text)) {
+                    lineNumbers.add(i + 1);
+                }
+            }
+
+        } catch (IOException ioException) {
             System.out.println("Error reading files");
             ioException.printStackTrace();
         }
-
-
-
-        return 1;
+        return lineNumbers;
     }
 }

@@ -2,7 +2,11 @@ package src;
 
 import src.utils.SearchText;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.List;
 import java.util.Scanner;
 
 public class TextProcessorMain {
@@ -26,10 +30,12 @@ public class TextProcessorMain {
 
             if (option == 4) {
                 System.out.println("Enter the word to be searched");
-                String searchText = scanner.next();
+//                String searchText = scanner.next();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+                String searchText = bufferedReader.readLine();
 
-                int count = SearchText.count(searchText);
-                System.out.println(count);
+                List<Integer> number = SearchText.count(searchText);
+                System.out.println(number);
             } else if (option == 5) {
                 break;
             }
