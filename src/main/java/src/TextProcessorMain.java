@@ -1,5 +1,6 @@
 package src;
 
+import src.utils.ReplaceText;
 import src.utils.SearchText;
 
 import java.io.BufferedReader;
@@ -22,21 +23,36 @@ public class TextProcessorMain {
             System.out.println("Enter 5 - To replace a specific text");
             System.out.println("Enter 6 - Ability to merge two or more text files into a single file");
 
-            System.out.println("Enter 5 - To exit");
+            System.out.println("Enter 7 - To exit");
 
 
             Scanner scanner = new Scanner(System.in);
             int option = scanner.nextInt();
 
+
             if (option == 4) {
                 System.out.println("Enter the word to be searched");
-//                String searchText = scanner.next();
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
                 String searchText = bufferedReader.readLine();
 
                 List<Integer> number = SearchText.count(searchText);
                 System.out.println(number);
-            } else if (option == 5) {
+            }else if (option == 5) {
+                System.out.println("Enter a text to be replaced");
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+                String toBeReplacedText = bufferedReader.readLine();
+
+                System.out.println("Enter replacement text");
+                String replacementText = bufferedReader.readLine();
+                boolean result = ReplaceText.textReplace(toBeReplacedText, replacementText);
+                if (result) {
+                    System.out.println("Text replace");
+                } else {
+                    System.out.println("Text cannot be replaced");
+                }
+
+            }
+            else if (option == 7) {
                 break;
             }
 
