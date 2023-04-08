@@ -1,4 +1,4 @@
-Skanda is John
-Skanda is Rambo
-Skanda is Robert
-Skanda is Mary
+My name is Rambo
+My name is Robert
+My name is John
+My name is Mary

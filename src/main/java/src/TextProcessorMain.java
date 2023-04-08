@@ -1,7 +1,6 @@
 package src;
 
-import src.utils.ReplaceText;
-import src.utils.SearchText;
+import src.utils.*;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -15,6 +14,7 @@ public class TextProcessorMain {
     public static void main(String[] args) throws IOException {
         System.out.println("Hello world");
 
+        label:
         while (true) {
             System.out.println("Enter 1 - To sort lines in Ascending order");
             System.out.println("Enter 2 - To sort lines in Descending order");
@@ -30,30 +30,47 @@ public class TextProcessorMain {
             int option = scanner.nextInt();
 
 
-            if (option == 4) {
-                System.out.println("Enter the word to be searched");
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-                String searchText = bufferedReader.readLine();
+            switch (option) {
+                case 1:
+                    SortLines.sortLinesInDescending();
+                    break;
 
-                List<Integer> number = SearchText.count(searchText);
-                System.out.println(number);
-            }else if (option == 5) {
-                System.out.println("Enter a text to be replaced");
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-                String toBeReplacedText = bufferedReader.readLine();
+                case 2:
+                    SortLines.sortLinesInAscending();
+                    break;
 
-                System.out.println("Enter replacement text");
-                String replacementText = bufferedReader.readLine();
-                boolean result = ReplaceText.textReplace(toBeReplacedText, replacementText);
-                if (result) {
-                    System.out.println("Text replace");
-                } else {
-                    System.out.println("Text cannot be replaced");
+                case 3:
+                    LineDuplicateRemover.removeDuplicateLines();
+                    break;
+
+                case 4: {
+                    System.out.println("Enter the word to be searched");
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+                    String searchText = bufferedReader.readLine();
+                    List<Integer> number = SearchText.count(searchText);
+                    System.out.println(number);
+                    break;
+                }
+                case 5: {
+                    System.out.println("Enter a text to be replaced");
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+                    String toBeReplacedText = bufferedReader.readLine();
+                    System.out.println("Enter replacement text");
+                    String replacementText = bufferedReader.readLine();
+                    boolean result = ReplaceText.textReplace(toBeReplacedText, replacementText);
+                    if (result) {
+                        System.out.println("Text replace");
+                    } else {
+                        System.out.println("Text cannot be replaced");
+                    }
+                    break;
                 }
 
-            }
-            else if (option == 7) {
-                break;
+                case 6: {
+                    FileMerger.mergeTwoFiles();
+                }
+                case 7:
+                    break label;
             }
 
         }
