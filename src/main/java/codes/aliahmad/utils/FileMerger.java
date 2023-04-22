@@ -1,4 +1,4 @@
-package src.utils;
+package codes.aliahmad.utils;
 
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -6,7 +6,6 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Collections;
 import java.util.stream.Stream;
 
 public class FileMerger {
@@ -17,9 +16,9 @@ public class FileMerger {
 
     public static void mergeTwoFiles(){
 
-        Path filePath1 = Paths.get("src/main/resources/input.txt");
-        Path filePath2 = Paths.get("src/main/resources/input2.txt");
-        Path outPutPath = Paths.get("src/main/resources/output.txt");
+        Path filePath1 = Paths.get("codes/aliahmad/main/resources/input.txt");
+        Path filePath2 = Paths.get("codes/aliahmad/main/resources/input2.txt");
+        Path outPutPath = Paths.get("codes/aliahmad/main/resources/output.txt");
         Charset charset = StandardCharsets.UTF_8;
 
         try{

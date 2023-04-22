@@ -1,4 +1,4 @@
-package src.utils;
+package codes.aliahmad.utils;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -16,7 +16,7 @@ public class SearchText {
 
     public static List<Integer> count(String text) {
 
-        Path path = Paths.get("src/main/resources/input.txt");
+        Path path = Paths.get("codes/aliahmad/main/resources/input.txt");
         List<Integer> lineNumbers = new ArrayList<>();
 
         try {

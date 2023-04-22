@@ -1,4 +1,4 @@
-package src.utils;
+package codes.aliahmad.utils;
 
 public class SortLines {
 

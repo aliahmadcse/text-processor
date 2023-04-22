@@ -1,17 +1,14 @@
-package src.utils;
+package codes.aliahmad.utils;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.stream.Stream;
 
 public class LineDuplicateRemover {
 
@@ -20,7 +17,7 @@ public class LineDuplicateRemover {
     }
 
     public static void removeDuplicateLines() {
-        Path path = Paths.get("src/main/resources/input.txt");
+        Path path = Paths.get("codes/aliahmad/main/resources/input.txt");
         Set<String> uniqueLiens = new HashSet<>();
         Charset standardCharSet = StandardCharsets.UTF_8;
 

@@ -1,18 +1,53 @@
-package src;
+package codes.aliahmad;
 
-import src.utils.*;
+import codes.aliahmad.logger.ConsoleLogger;
+import codes.aliahmad.logger.Logger;
+import codes.aliahmad.models.Arguments;
+import codes.aliahmad.utils.ArgUtil;
+import codes.aliahmad.utils.FileMerger;
+import codes.aliahmad.utils.LineDuplicateRemover;
+import codes.aliahmad.utils.ReplaceText;
+import codes.aliahmad.utils.SearchText;
+import codes.aliahmad.utils.SortLines;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
 import java.util.Scanner;
 
-public class TextProcessorMain {
+public class TextProcessor {
 
-    public static void main(String[] args) throws IOException {
-        System.out.println("Hello world");
+    private static final Logger logger = new ConsoleLogger();
+    public static void main(String[] args) throws IOException
+    {
+        // parse the arguments
+        Arguments arguments = new ArgUtil().parseArguments(args);
+        System.out.println(arguments);
+
+//        switch (arguments.getCommand())
+//        {
+//            case SORT ->
+//            {
+//
+//            }
+//            case SEARCH ->
+//            {
+//
+//            }
+//            case REPLACE ->
+//            {
+//
+//            }
+//            case MERGE ->
+//            {
+//
+//            }
+//            case DEDUP ->
+//            {
+//
+//            }
+//        }
 
         label:
         while (true) {

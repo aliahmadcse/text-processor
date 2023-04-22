@@ -1,4 +1,4 @@
-package src.utils;
+package codes.aliahmad.utils;
 
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -14,7 +14,7 @@ public class ReplaceText {
     }
 
     public static boolean textReplace(String toBeReplacedText, String replacementText){
-        Path path = Paths.get("src/main/resources/input.txt");
+        Path path = Paths.get("codes/aliahmad/main/resources/input.txt");
         Charset charset = StandardCharsets.UTF_8;
         try {
             String content = new String(Files.readAllBytes(path));
