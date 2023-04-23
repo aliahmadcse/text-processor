@@ -20,10 +20,10 @@ public class SortLinesUtil
   public static void sort(Arguments arguments)
   {
     Path inputFilePath = Paths.get(arguments.getInputFile());
-    validateInputFile(inputFilePath, arguments);
+    ValidationUtil.validateFile(inputFilePath, arguments.getInputFile());
 
     Path outputFilePath = Paths.get(arguments.getOutputFile());
-    validateOutputFile(outputFilePath, arguments);
+    ValidationUtil.validateFileOrCreate(outputFilePath, arguments.getOutputFile());
 
     try (Stream<String> inputLines = Files.lines(inputFilePath))
     {
@@ -47,31 +47,6 @@ public class SortLinesUtil
     }
 
     return inputLines.sorted(Collections.reverseOrder());
-  }
-
-  private static void validateOutputFile(Path outputFilePath, Arguments arguments)
-  {
-    try
-    {
-      if (Files.notExists(outputFilePath))
-      {
-        Files.createFile(outputFilePath);
-      }
-    }
-    catch (IOException ioException)
-    {
-      LOGGER.log(Level.ERROR, "Error creating output file: " + arguments.getOutputFile());
-      throw new RuntimeException("Issues creating a file", ioException);
-    }
-  }
-
-  private static void validateInputFile(Path inputFilePath, Arguments arguments)
-  {
-    if (Files.notExists(inputFilePath))
-    {
-      LOGGER.log(Level.ERROR, arguments.getInputFile() + " file does not exist");
-      throw new IllegalArgumentException("input file does not exist");
-    }
   }
 
 }

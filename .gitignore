@@ -20,3 +20,6 @@ nbbuild/
 dist/
 nbdist/
 nbactions.xml
+
+# output files
+output.txt

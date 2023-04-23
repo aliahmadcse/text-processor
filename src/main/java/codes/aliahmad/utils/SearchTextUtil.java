@@ -11,8 +11,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 public class SearchTextUtil
 {
@@ -21,6 +19,8 @@ public class SearchTextUtil
   public static void search(Arguments arguments)
   {
     Path path = Paths.get(arguments.getInputFile());
+    ValidationUtil.validateFile(path, arguments.getInputFile());
+
     List<Integer> lineNumbers = new ArrayList<>();
 
     try
