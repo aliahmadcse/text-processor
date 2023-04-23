@@ -10,14 +10,12 @@ import codes.aliahmad.utils.ReplaceTextUtil;
 import codes.aliahmad.utils.SearchTextUtil;
 import codes.aliahmad.utils.SortLinesUtil;
 
-import java.io.IOException;
-
 public class TextProcessor
 {
 
   private static final Logger logger = new ConsoleLogger();
 
-  public static void main(String[] args) throws IOException
+  public static void main(String[] args)
   {
     // parse the arguments
     Arguments arguments = new ArgUtil().parseArguments(args);

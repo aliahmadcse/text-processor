@@ -20,8 +20,3 @@
    
    `text-processor merge --input-files <input-files> --output-file <output-file>`
 
-text-processor merge --input-files input1.txt input2.txt --output-file output.txt
-text-processor merge --output-file output.txt --input-files input1.txt input2.txt
-
-
-sort --input-file input.txt --output-file output.txt --order asc

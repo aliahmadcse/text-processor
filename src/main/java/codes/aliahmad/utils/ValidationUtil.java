@@ -17,7 +17,7 @@ public class ValidationUtil
     if (Files.notExists(path))
     {
       LOGGER.log(Level.ERROR, fileName + " file does not exist");
-      throw new IllegalArgumentException("input file does not exist");
+      throw new IllegalArgumentException("input file " + fileName + " does not exist");
     }
   }
 
