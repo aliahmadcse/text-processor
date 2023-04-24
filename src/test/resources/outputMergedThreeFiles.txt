@@ -1,0 +1,10 @@
+a
+quick
+brown
+fox jumps
+over the
+lazy dog
+one two three
+xyz
+java python
+c++ is a superset of c

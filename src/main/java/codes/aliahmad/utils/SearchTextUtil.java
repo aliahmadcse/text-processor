@@ -16,7 +16,7 @@ public class SearchTextUtil
 {
   private static final Logger LOGGER = new ConsoleLogger();
 
-  public static void search(Arguments arguments)
+  public static List<Integer> search(Arguments arguments)
   {
     Path path = Paths.get(arguments.getInputFile());
     ValidationUtil.validateFile(path, arguments.getInputFile());
@@ -42,7 +42,6 @@ public class SearchTextUtil
       throw new RuntimeException("Error reading files", ioException);
     }
 
-    LOGGER.log(Level.INFO, "The text " + arguments.getSearchText() +
-            " was found in the following lines: " + lineNumbers);
+    return lineNumbers;
   }
 }

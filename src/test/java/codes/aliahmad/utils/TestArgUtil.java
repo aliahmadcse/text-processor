@@ -22,11 +22,11 @@ public class TestArgUtil
   public void test_parsingSortArgs()
   {
     fixture.givenArguments(new String[]{"sort", "--input-file", "input.txt", "--output-file",
-            "output.txt", "--order", "asc"});
+            "outputSortedAsc.txt", "--order", "asc"});
     fixture.whenArgumentsAreParsed();
     fixture.thenCommandIsSort();
     fixture.thenInputFileIs("input.txt");
-    fixture.thenOutputFileIs("output.txt");
+    fixture.thenOutputFileIs("outputSortedAsc.txt");
     fixture.thenSortOrderIsAsc();
   }
 
@@ -34,7 +34,7 @@ public class TestArgUtil
   public void test_parsingSearchArgs()
   {
     fixture.givenArguments(new String[]{"search", "--search-text", "search text", "--input-file",
-            "input.txt", "--output-file", "output.txt"});
+            "input.txt", "--output-file", "outputSortedAsc.txt"});
     fixture.whenArgumentsAreParsed();
     fixture.thenCommandIsSearch();
     fixture.thenInputFileIs("input.txt");
@@ -46,34 +46,34 @@ public class TestArgUtil
   public void test_parsingMergeArgs()
   {
     fixture.givenArguments(new String[]{"merge", "--input-files", "input1.txt", "input2.txt", "input3.txt",
-            "--output-file", "output.txt"});
+            "--output-file", "outputSortedAsc.txt"});
     fixture.whenArgumentsAreParsed();
     fixture.thenCommandIsMerge();
     fixture.thenInputFilesAre(List.of("input1.txt", "input2.txt", "input3.txt"));
-    fixture.thenOutputFileIs("output.txt");
+    fixture.thenOutputFileIs("outputSortedAsc.txt");
   }
 
   @Test
   public void test_parsingReplaceArgs()
   {
     fixture.givenArguments(new String[]{"replace", "--search-text", "search text", "--input-file", "input.txt",
-            "--output-file", "output.txt", "--replace-text", "replace text"});
+            "--output-file", "outputSortedAsc.txt", "--replace-text", "replace text"});
     fixture.whenArgumentsAreParsed();
     fixture.thenCommandIsReplace();
     fixture.thenInputFileIs("input.txt");
     fixture.thenSearchTextIs("search text");
     fixture.thenReplaceTextIs("replace text");
-    fixture.thenOutputFileIs("output.txt");
+    fixture.thenOutputFileIs("outputSortedAsc.txt");
   }
 
   @Test
   public void test_parsingDedupArgs()
   {
-    fixture.givenArguments(new String[]{"dedup", "--output-file", "output.txt", "--input-file", "input.txt"});
+    fixture.givenArguments(new String[]{"dedup", "--output-file", "outputSortedAsc.txt", "--input-file", "input.txt"});
     fixture.whenArgumentsAreParsed();
     fixture.thenCommandIsDedup();
     fixture.thenInputFileIs("input.txt");
-    fixture.thenOutputFileIs("output.txt");
+    fixture.thenOutputFileIs("outputSortedAsc.txt");
   }
 
   private static class Fixture
